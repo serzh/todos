@@ -11,3 +11,10 @@
     (let [todo (new-todo "Some text")]
       (save-todo todo)
       (is (= [todo] (all-todos))))))
+
+(deftest remove-todo-test
+  (testing "save new todo"
+    (let [todo (new-todo "Some text")]
+      (save-todo todo)
+      (remove-todo todo)
+      (is (= [] (all-todos))))))

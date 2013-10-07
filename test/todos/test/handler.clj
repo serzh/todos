@@ -1,4 +1,5 @@
-(ns todos.test.handler
+(comment 
+  (ns todos.test.handler
   (:use clojure.test
         ring.mock.request  
         todos.handler))
@@ -11,4 +12,4 @@
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
-      (is (= (:status response) 404)))))
+      (is (= (:status response) 404))))))

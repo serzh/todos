@@ -7,7 +7,11 @@
 
 (defn save-todo [todo]
   (dosync
-    conj todos todo))
+    (alter todos conj todo)))
 
-(defn all-todos
-  todos)
+(defn all-todos []
+  @todos)
+
+(defn remove-todo [todo]
+  (dosync
+    (alter todos #(filter %2 %1) todo)))
